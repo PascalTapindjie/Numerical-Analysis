@@ -1,15 +1,22 @@
 <div align="center">
 
-# 📐 Numerical Analysis
+  <img src="assets/banner.svg" alt="Numerical Analysis — bannière animée par Pascal Tapindjie" width="100%">
 
-**Un parcours pratique du hasard et des méthodes numériques en Python**
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?lines=3+m%C3%A9thodes+de+r%C3%A9solution+%E2%9A%A1;Marches+al%C3%A9atoires+Monte-Carlo+%F0%9F%8E%B2;Visualis%C3%A9+avec+NumPy+%2B+Matplotlib+%F0%9F%93%8A&font=Fira%20Code&center=true&vCenter=true&width=660&height=45&duration=2600&pause=800&size=22&color=A5B4FC">
+    <img src="https://readme-typing-svg.demolab.com/?lines=3+m%C3%A9thodes+de+r%C3%A9solution+%E2%9A%A1;Marches+al%C3%A9atoires+Monte-Carlo+%F0%9F%8E%B2;Visualis%C3%A9+avec+NumPy+%2B+Matplotlib+%F0%9F%93%8A&font=Fira%20Code&center=true&vCenter=true&width=660&height=45&duration=2600&pause=800&size=22&color=4338CA" alt="Animation de texte — méthodes de résolution, marches aléatoires, visualisation" height="45">
+  </picture>
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-requis-4D77CF?style=flat&logo=numpy&logoColor=white)](https://numpy.org/)
-[![Matplotlib](https://img.shields.io/badge/Matplotlib-requis-11557C?style=flat&logo=matplotlib&logoColor=white)](https://matplotlib.org/)
-[![Statut](https://img.shields.io/badge/statut-p%C3%A9dagogique-active?style=flat)](#-pr%C3%A9sentation)
+  <br/>
 
-[English](README.md) · 🇫🇷 **Français**
+  [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+  [![NumPy](https://img.shields.io/badge/NumPy-requis-4D77CF?style=flat&logo=numpy&logoColor=white)](https://numpy.org/)
+  [![Matplotlib](https://img.shields.io/badge/Matplotlib-requis-11557C?style=flat&logo=matplotlib&logoColor=white)](https://matplotlib.org/)
+  [![Statut](https://img.shields.io/badge/statut-p%C3%A9dagogique-active?style=flat)](#-pr%C3%A9sentation)
+
+  <br/>
+
+  [English](README.md) · 🇫🇷 **Français**
 
 </div>
 
@@ -35,10 +42,12 @@ python TD2.py
 
 ```
 Numerical-Analysis/
-├── README.md      # 🇬🇧 Documentation (English)
-├── README.fr.md   # 🇫🇷 Documentation (Français)
-├── TP1.py         # 🎲 Simulation de marche aléatoire
-└── TD2.py         # 🔍 Méthodes de recherche de racines
+├── README.md           # 🇬🇧 Documentation (English)
+├── README.fr.md        # 🇫🇷 Documentation (Français)
+├── assets/
+│   └── banner.svg      # ✨ Bannière animée (titre & auteur, effets lumineux)
+├── TP1.py              # 🎲 Simulation de marche aléatoire
+└── TD2.py              # 🔍 Méthodes de recherche de racines
 ```
 
 ---

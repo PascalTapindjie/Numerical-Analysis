@@ -1,15 +1,22 @@
 <div align="center">
 
-# 📐 Numerical Analysis
+  <img src="assets/banner.svg" alt="Numerical Analysis — animated banner by Pascal Tapindjie" width="100%">
 
-**A hands-on journey through randomness & numerical methods in Python**
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?lines=3+root-finding+methods+%E2%9A%A1;Monte-Carlo+random+walks+%F0%9F%8E%B2;Visualised+with+NumPy+%2B+Matplotlib+%F0%9F%93%8A&font=Fira%20Code&center=true&vCenter=true&width=640&height=45&duration=2600&pause=800&size=22&color=A5B4FC">
+    <img src="https://readme-typing-svg.demolab.com/?lines=3+root-finding+methods+%E2%9A%A1;Monte-Carlo+random+walks+%F0%9F%8E%B2;Visualised+with+NumPy+%2B+Matplotlib+%F0%9F%93%8A&font=Fira%20Code&center=true&vCenter=true&width=640&height=45&duration=2600&pause=800&size=22&color=4338CA" alt="Typing animation — root-finding methods, Monte-Carlo random walks, visualisation" height="45">
+  </picture>
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-required-4D77CF?style=flat&logo=numpy&logoColor=white)](https://numpy.org/)
-[![Matplotlib](https://img.shields.io/badge/Matplotlib-required-11557C?style=flat&logo=matplotlib&logoColor=white)](https://matplotlib.org/)
-[![Status](https://img.shields.io/badge/status-educational-active?style=flat)](#-overview)
+  <br/>
 
-🌐 **English** · [Français](README.fr.md)
+  [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+  [![NumPy](https://img.shields.io/badge/NumPy-required-4D77CF?style=flat&logo=numpy&logoColor=white)](https://numpy.org/)
+  [![Matplotlib](https://img.shields.io/badge/Matplotlib-required-11557C?style=flat&logo=matplotlib&logoColor=white)](https://matplotlib.org/)
+  [![Status](https://img.shields.io/badge/status-educational-active?style=flat)](#-overview)
+
+  <br/>
+
+  🌐 **English** · [Français](README.fr.md)
 
 </div>
 
@@ -35,10 +42,12 @@ python TD2.py
 
 ```
 Numerical-Analysis/
-├── README.md      # 🇬🇧 Documentation (English)
-├── README.fr.md   # 🇫🇷 Documentation (Français)
-├── TP1.py         # 🎲 Random-walk simulation
-└── TD2.py         # 🔍 Root-finding methods
+├── README.md           # 🇬🇧 Documentation (English)
+├── README.fr.md        # 🇫🇷 Documentation (Français)
+├── assets/
+│   └── banner.svg      # ✨ Animated banner (title & author, light effects)
+├── TP1.py              # 🎲 Random-walk simulation
+└── TD2.py              # 🔍 Root-finding methods
 ```
 
 ---
