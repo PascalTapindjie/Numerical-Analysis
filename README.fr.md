@@ -24,6 +24,8 @@
 
 ## 📖 Présentation
 
+<img src="assets/title_overview_fr.svg" alt="Présentation — titre de section animé" width="100%">
+
 Ce dépôt rassemble des projets pédagogiques (*Travaux Pratiques* / *Travaux Dirigés*) écrits en Python, couvrant les deux piliers classiques de l'analyse numérique :
 
 | | Projet | Thématique |
@@ -35,22 +37,33 @@ Chaque script est **autonome** : il définit le modèle mathématique, lance le 
 
 ## 📂 Structure du dépôt
 
+<img src="assets/title_structure_fr.svg" alt="Structure du dépôt, titre de section animé" width="100%">
+
 ```
 Numerical-Analysis/
-├── README.md           # 🇬🇧 Documentation (English)
-├── README.fr.md        # 🇫🇷 Documentation (Français)
+├── README.md / README.fr.md  # 🇬🇧🇫🇷 Documentation (bilingue)
 ├── assets/
-│   ├── banner.svg           # ✨ Bannière animée (titre & auteur, effets lumineux)
-│   ├── functions.png/.gif   # 📉 Courbes des fonctions de test (statique + animé)
-│   ├── benchmark.png/.gif   # 🏆 Comparaison du nombre d'itérations (statique + animé)
-│   └── convergence.png/.gif # 📈 Courbes de convergence (statique + animé)
-├── TP1.py              # 🎲 Simulation de marche aléatoire
-└── TD2.py              # 🔍 4 méthodes de recherche de racines + benchmark
+│   ├── banner.svg            # ✨ Bannière animée (titre, auteur, effets lumineux)
+│   ├── divider.svg           # ➖ Séparateur animé (balayage lumineux)
+│   ├── title_*_fr.svg        # 🎨 11 titres de section animés (EN + FR)
+│   ├── random_walk_anim.svg  # 🎲 TP1 — marche aléatoire vivante + barrières absorbantes
+│   ├── methods_cards.svg     # 🔍 TD2 — les 4 méthodes qui convergent
+│   ├── podium.svg            # 🏆 Podium de classement animé (barres + confettis)
+│   ├── verdict.svg           # ✅ Verdict animé (texte tapé)
+│   ├── terminal.svg          # 💻 Terminal animé (installation + lancement)
+│   ├── footer.svg            # 👋 Pied de page animé
+│   ├── functions.png/.gif    # 📉 Courbes des fonctions de test (statique + animé)
+│   ├── benchmark.png/.gif    # 🏆 Comparaison des itérations (statique + animé)
+│   └── convergence.png/.gif  # 📈 Courbes de convergence (statique + animé)
+├── TP1.py                   # 🎲 Simulation de marche aléatoire
+└── TD2.py                   # 🔍 4 méthodes de recherche de racines + benchmark + tableau de bord
 ```
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🎲 TP1 — Simulation de marche aléatoire
+
+<img src="assets/title_tp1_fr.svg" alt="TP1 — Marche aléatoire, titre de section animé" width="100%">
 
 Simule une **marche aléatoire symétrique simple** sur les entiers, en libre et avec barrières absorbantes.
 
@@ -81,11 +94,15 @@ l'absorption est donc rapide en pratique (quelques centaines de pas en moyenne).
 
 ### Ce que montre la figure
 
+<img src="assets/random_walk_anim_fr.svg" alt="Marche aléatoire animée — une particule trace son chemin entre deux barrières absorbantes à ±30" width="100%">
+
 Les trajectoires de la marche avec les deux barrières tracées en **pointillés rouges**, à échelle égale et avec un cadrage focalisé sur les premiers pas (`x ∈ [0, 50]`, `y ∈ [-35, 35]`).
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🔍 TD2 — Quatre méthodes de recherche de racines
+
+<img src="assets/title_td2_fr.svg" alt="TD2 — Recherche de racines ×4, titre de section animé" width="100%">
 
 Un fichier unique et « blindé » implémentant **quatre** méthodes itératives classiques pour résoudre $f(x) = 0$, un dispatcher, et un **moteur de benchmark** qui mesure quelle méthode est la plus rapide.
 
@@ -122,6 +139,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
 **⑤ Dispatcher** (`dispatch`) — utilise le **pattern matching structurel** de Python 3.10 (`match` / `case`) pour router un nom de méthode (ou une fonction) vers le bon solveur.
 
+<img src="assets/methods_cards.svg" alt="Les 4 méthodes de recherche de racines qui convergent — animé" width="100%">
+
 ### Comparaison rapide
 
 | Méthode | Ordre de convergence | Besoin de $f'$ | Données initiales | Encadrement préservé |
@@ -133,9 +152,11 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
 > ⚠️ **Racines multiples : tout change !** Quand la racine est d'ordre $m > 1$, l'ordre quadratique de Newton s'effondre en un taux linéaire $\frac{m-1}{m}$ — et les méthodes par encadrement deviennent compétitives. Le benchmark ci-dessous le prouve.
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🏆 Benchmark — quelle méthode est la plus rapide ?
+
+<img src="assets/title_benchmark_fr.svg" alt="Benchmark de vitesse, titre de section animé" width="100%">
 
 `TD2.py` exécute **4 méthodes × 4 fonctions** et mesure, jusqu'à la précision $|x - x^\star| \le 10^{-10}$ :
 
@@ -166,6 +187,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
 *\* le temps mural est indicatif à l'échelle des microsecondes.*
 
+<img src="assets/podium_fr.svg" alt="Podium de classement animé — dichoto 🥇, newton 🥈, sécante 🥉, fausse position 4ᵉ" width="100%">
+
 > ### ✅ Verdict
 > **Champion toutes fonctions confondues : `dichoto` — 31,75 itérations en moyenne**, car la dichotomie est *immunisée contre la multiplicité des racines* : elle divise l'intervalle quoi qu'il arrive à la forme de $f$.
 > - **Sur les racines simples, `newton` domine : seulement 4 itérations** (convergence quadratique) — le plus rapide quand $f'$ est disponible.
@@ -174,13 +197,17 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 >
 > *Pas de méthode universellement meilleure : **Newton pour les racines simples avec dérivée, dichotomie quand la convergence doit être garantie.***
 
+<img src="assets/verdict_fr.svg" alt="Verdict animé — dichoto l'emporte, effet machine à écrire" width="100%">
+
 ![Comparaison des itérations — animé](assets/benchmark_anim.gif)
 
 ![Courbes de convergence — animé](assets/convergence_anim.gif)
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🚀 Prise en main
+
+<img src="assets/title_start_fr.svg" alt="Prise en main, titre de section animé" width="100%">
 
 ### Prérequis
 
@@ -191,6 +218,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 - **Pillow** — export des GIF animés (installé automatiquement avec Matplotlib)
 
 ### Installation
+
+<img src="assets/terminal_fr.svg" alt="Terminal animé — cloner, installer et lancer le benchmark" width="100%">
 
 ```bash
 git clone https://github.com/PascalTapindjie/Numerical-Analysis.git
@@ -208,9 +237,11 @@ python TD2.py --no-plot  # benchmark + graphiques, sans fenêtre GUI
 
 > 💡 **Tableau de bord interactif :** lancer `python TD2.py` ouvre une **fenêtre Tkinter** présentant les quatre diagrammes du benchmark — **① fonctions de test · ② convergence · ③ itérations par fonction · ④ classement général** — sur un **écran divisé en quatre (2×2)**, avec le vainqueur annoncé dans l'en-tête. Les graphiques PNG et GIF animés sont toujours écrits dans `assets/`.
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 📊 Exemple de sortie
+
+<img src="assets/title_output_fr.svg" alt="Exemple de sortie, titre de section animé" width="100%">
 
 ```
 ====================================================================================
@@ -235,22 +266,27 @@ f1 : 3cos(x) - 2ln(x+1) - 1   [racine simple (transcendante)]
 
 Trois graphiques statiques et leurs **versions GIF animées** sont ensuite enregistrés dans `assets/` : `functions.png` / `functions_anim.gif`, `convergence.png` / `convergence_anim.gif`, `benchmark.png` / `benchmark_anim.gif` — les GIF bouclent en boucle infinie et sont ceux que vous voyez intégrés ci-dessus.
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🗺️ Feuille de route & limites connues
+
+<img src="assets/title_roadmap_fr.svg" alt="Feuille de route, titre de section animé" width="100%">
 
 - [x] **Blinder `TD2.py`** — validation du changement de signe, garde $f'(x)=0$, détection de stagnation, arrêt sur tolérance.
 - [x] **Ajouter une 4ᵉ méthode** (`regula_falsi`) et un **moteur de benchmark** qui prouve quelle méthode est la plus rapide.
 - [x] **Tableau de bord interactif** — `python TD2.py` ouvre les 4 diagrammes dans une fenêtre Tkinter 2×2 (écran divisé en quatre).
 - [x] **Graphiques animés dans le README** — versions GIF de chaque graphe (courbes tracées progressivement, barres qui poussent).
+- [x] **README entièrement animé** — 30+ animations SVG SMIL : titres de section, séparateurs lumineux, marche aléatoire vivante, cartes de méthodes, podium avec confettis, verdict tapé, terminal animé, pied de page.
 - [ ] **Hygiène des figures dans `TP1.py`** — séparer marche libre et marche bornée sur deux figures, et appeler `plt.show()`.
 - [ ] **Paramétrage** — exposer nombres de pas, barrières et intervalles en constantes ou arguments CLI.
 - [ ] **`requirements.txt`** pour une installation en une ligne.
 - [ ] **Tests automatisés** (`pytest`).
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🤝 Contribuer
+
+<img src="assets/title_contributing_fr.svg" alt="Contribuer, titre de section animé" width="100%">
 
 Les contributions, suggestions et signalements de bugs sont les bienvenus !
 
@@ -260,10 +296,18 @@ Les contributions, suggestions et signalements de bugs sont les bienvenus !
 4. 🚀 Poussez sur la branche (`git push origin feature/amazing-improvement`)
 5. 🔀 Ouvrez une **Pull Request**
 
+<img src="assets/divider.svg" alt="" width="100%">
+
 ## ✍️ Auteur
+
+<img src="assets/title_author_fr.svg" alt="Auteur, titre de section animé" width="100%">
 
 **Pascal Tapindjie** — [@PascalTapindjie](https://github.com/PascalTapindjie)
 
 ## 📜 Licence
 
+<img src="assets/title_license_fr.svg" alt="Licence, titre de section animé" width="100%">
+
 Ce dépôt ne déclare pas encore de licence. Si vous souhaitez réutiliser le code, merci d'ouvrir une issue.
+
+<img src="assets/footer_fr.svg" alt="Pied de page animé — merci de votre visite !" width="100%">

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340">
+  <defs><linearGradient id="shine" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient></defs>
+  <text x="10" y="18" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="15" font-weight="600" fill="#94a3b8">How each method walks toward the root · Comment chaque méthode converge vers la racine</text>
+  
+  <g>
+    <rect x="25" y="30" width="280" height="290" rx="16" fill="#131a3a" stroke="#38bdf8" stroke-opacity=".6"/>
+    <rect x="25" y="30" width="280" height="290" rx="16" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="70 900" opacity=".9">
+      <animate attributeName="stroke-dashoffset" values="0;-970" dur="4s" begin="0.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="47" y="70" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="22" font-weight="700" fill="#38bdf8">Dichotomy</text>
+    <text x="47" y="98" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#cbd5e1">order 1 - error / 2 each step</text>
+    <text x="47" y="122" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">data: bracket [a,b]</text>
+    <text x="47" y="146" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">f' needed: no ❌</text>
+    <text x="47" y="170" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#38bdf8">root x*</text>
+    <line x1="49" y1="255" x2="281" y2="255" stroke="#334155"/>
+    <path d="M 55 210 C 125 236 205 280 275 300" fill="none" stroke="#38bdf8" stroke-width="2.2" opacity=".95"/>
+    
+      <rect x="65" y="249" width="180" height="12" fill="#38bdf8" opacity=".18"/>
+      <rect x="65" y="250" width="180" height="10" fill="none" stroke="#38bdf8" stroke-width="2">
+        <animate attributeName="x" values="65;105;135;150" calcMode="discrete" keyTimes="0;.3;.6;1" dur="2.4s" begin="0s;9s" fill="freeze"/>
+        <animate attributeName="width" values="180;120;60;30" calcMode="discrete" keyTimes="0;.3;.6;1" dur="2.4s" begin="0s;9s" fill="freeze"/>
+      </rect>
+      <circle cx="165" cy="255" r="4" fill="#ffffff"><animate attributeName="r" values="3;6;3" dur="1.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g>
+    <rect x="317" y="30" width="280" height="290" rx="16" fill="#131a3a" stroke="#34d399" stroke-opacity=".6"/>
+    <rect x="317" y="30" width="280" height="290" rx="16" fill="none" stroke="#34d399" stroke-width="3" stroke-dasharray="70 900" opacity=".9">
+      <animate attributeName="stroke-dashoffset" values="0;-970" dur="4s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <text x="339" y="70" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="22" font-weight="700" fill="#34d399">Regula falsi</text>
+    <text x="339" y="98" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#cbd5e1">order 1 - may stall</text>
+    <text x="339" y="122" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">data: bracket [a,b]</text>
+    <text x="339" y="146" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">f' needed: no ❌</text>
+    <text x="339" y="170" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#34d399">root x*</text>
+    <line x1="341" y1="255" x2="573" y2="255" stroke="#334155"/>
+    <path d="M 347 210 C 417 236 497 280 567 300" fill="none" stroke="#34d399" stroke-width="2.2" opacity=".95"/>
+    
+      <line x1="367" y1="253" x2="547" y2="269" stroke="#34d399" stroke-width="2" opacity=".9">
+        <animate attributeName="y2" values="269;257;253" calcMode="discrete" keyTimes="0;.5;1" dur="2.4s" begin="0s;9s" fill="freeze"/>
+        <animate attributeName="x2" values="547;507;477" calcMode="discrete" keyTimes="0;.5;1" dur="2.4s" begin="0s;9s" fill="freeze"/>
+      </line>
+      <circle cx="457" cy="255" r="4" fill="#ffffff"><animate attributeName="r" values="3;6;3" dur="1.6s" repeatCount="indefinite"/></circle>
+      <circle cx="547" cy="269" r="5" fill="#34d399"><animate attributeName="cx" values="547;507;477" calcMode="discrete" keyTimes="0;.5;1" dur="2.4s" begin="0s;9s" fill="freeze"/></circle>
+  </g>
+  <g>
+    <rect x="609" y="30" width="280" height="290" rx="16" fill="#131a3a" stroke="#fbbf24" stroke-opacity=".6"/>
+    <rect x="609" y="30" width="280" height="290" rx="16" fill="none" stroke="#fbbf24" stroke-width="3" stroke-dasharray="70 900" opacity=".9">
+      <animate attributeName="stroke-dashoffset" values="0;-970" dur="4s" begin="1.0s" repeatCount="indefinite"/>
+    </rect>
+    <text x="631" y="70" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="22" font-weight="700" fill="#fbbf24">Secant</text>
+    <text x="631" y="98" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#cbd5e1">order ~ 1.618 - superlinear</text>
+    <text x="631" y="122" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">data: two points x0,x1</text>
+    <text x="631" y="146" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">f' needed: no ❌</text>
+    <text x="631" y="170" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#fbbf24">root x*</text>
+    <line x1="633" y1="255" x2="865" y2="255" stroke="#334155"/>
+    <path d="M 639 210 C 709 236 789 280 859 300" fill="none" stroke="#fbbf24" stroke-width="2.2" opacity=".95"/>
+    
+      <line x1="669" y1="237" x2="809" y2="271" stroke="#fbbf24" stroke-width="2" opacity=".9">
+        <animate attributeName="x2" values="809;779;759" calcMode="discrete" keyTimes="0;.45;1" dur="2.4s" begin="0s;9s" fill="freeze"/>
+        <animate attributeName="y2" values="271;259;253" calcMode="discrete" keyTimes="0;.45;1" dur="2.4s" begin="0s;9s" fill="freeze"/>
+      </line>
+      <circle cx="669" cy="237" r="4" fill="#fbbf24"/>
+      <circle cx="749" cy="255" r="4" fill="#ffffff"><animate attributeName="r" values="3;6;3" dur="1.6s" repeatCount="indefinite"/></circle>
+  </g>
+  <g>
+    <rect x="901" y="30" width="280" height="290" rx="16" fill="#131a3a" stroke="#f472b6" stroke-opacity=".6"/>
+    <rect x="901" y="30" width="280" height="290" rx="16" fill="none" stroke="#f472b6" stroke-width="3" stroke-dasharray="70 900" opacity=".9">
+      <animate attributeName="stroke-dashoffset" values="0;-970" dur="4s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <text x="923" y="70" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="22" font-weight="700" fill="#f472b6">Newton-Raphson</text>
+    <text x="923" y="98" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#cbd5e1">order 2 - quadratic</text>
+    <text x="923" y="122" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">data: one point x0 + f'</text>
+    <text x="923" y="146" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">f' needed: yes ✅</text>
+    <text x="923" y="170" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#f472b6">root x*</text>
+    <line x1="925" y1="255" x2="1157" y2="255" stroke="#334155"/>
+    <path d="M 931 210 C 1001 236 1081 280 1151 300" fill="none" stroke="#f472b6" stroke-width="2.2" opacity=".95"/>
+    
+      <line x1="1001" y1="275" x2="1111" y2="280" stroke="#f472b6" stroke-width="2" opacity="0">
+        <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;.05;.55;.6" dur="3s" begin="0s;9s" fill="freeze"/>
+      </line>
+      <line x1="1053" y1="253" x2="1091" y2="271" stroke="#f472b6" stroke-width="2" opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.3;.35;.8;.85;.9" dur="3s" begin="0s;9s" fill="freeze"/>
+      </line>
+      <circle cx="1111" cy="280" r="5" fill="#f472b6">
+        <animate attributeName="cx" values="1111;1111;1066;1066;1049;1041" keyTimes="0;.3;.35;.8;.85;1" dur="3s" begin="0s;9s" fill="freeze"/>
+        <animate attributeName="cy" values="280;280;257;257;254;255" keyTimes="0;.3;.35;.8;.85;1" dur="3s" begin="0s;9s" fill="freeze"/>
+      </circle>
+      <circle cx="1041" cy="255" r="4" fill="#ffffff"><animate attributeName="r" values="3;6;3" dur="1.6s" repeatCount="indefinite"/></circle>
+  </g>
+</svg>

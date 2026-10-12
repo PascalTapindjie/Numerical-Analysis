@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 26" width="1200" height="26">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset=".33" stop-color="#34d399"/>
+      <stop offset=".66" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f472b6"/>
+      <animate attributeName="x1" values="-.6;.4;-.6" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="x2" values=".4;1.4;.4" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="11" width="1200" height="4" rx="2" fill="url(#g)"/>
+  <ellipse cx="0" cy="13" rx="26" ry="9" fill="#e2e8f0" opacity=".35">
+    <animate attributeName="cx" values="0;1200" dur="4.5s" repeatCount="indefinite"/>
+  </ellipse>
+  <circle cx="0" cy="13" r="5" fill="#ffffff">
+    <animate attributeName="cx" values="0;1200" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;.4;1" dur="1.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="190" cy="5" r="1.6" fill="#e2e8f0" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="3.1s" begin="0.00s" repeatCount="indefinite"/></circle><circle cx="420" cy="21" r="1.4" fill="#a5b4fc" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="3.1s" begin="0.43s" repeatCount="indefinite"/></circle><circle cx="700" cy="6" r="1.6" fill="#e2e8f0" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="3.1s" begin="0.86s" repeatCount="indefinite"/></circle><circle cx="905" cy="20" r="1.4" fill="#fcd34d" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="3.1s" begin="1.29s" repeatCount="indefinite"/></circle><circle cx="1120" cy="7" r="1.5" fill="#e2e8f0" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="3.1s" begin="1.72s" repeatCount="indefinite"/></circle>
+</svg>

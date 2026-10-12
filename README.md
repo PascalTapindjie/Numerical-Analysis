@@ -24,6 +24,8 @@
 
 ## 📖 Overview
 
+<img src="assets/title_overview.svg" alt="Overview — animated section title" width="100%">
+
 This repository collects educational projects (*Travaux Pratiques* / *Travaux Dirigés*) written in Python, covering the two classical pillars of numerical analysis:
 
 | | Project | Topic |
@@ -35,22 +37,33 @@ Each script is **self-contained**: it defines the mathematical model, runs the c
 
 ## 📂 Repository structure
 
+<img src="assets/title_structure.svg" alt="Repository Structure, animated section title" width="100%">
+
 ```
 Numerical-Analysis/
-├── README.md           # 🇬🇧 Documentation (English)
-├── README.fr.md        # 🇫🇷 Documentation (Français)
+├── README.md / README.fr.md  # 🇬🇧🇫🇷 Documentation (bilingual)
 ├── assets/
-│   ├── banner.svg           # ✨ Animated banner (title & author, light effects)
-│   ├── functions.png/.gif   # 📉 Test-function curves (static + animated)
-│   ├── benchmark.png/.gif   # 🏆 Iterations-to-target comparison (static + animated)
-│   └── convergence.png/.gif # 📈 Convergence curves (static + animated)
-├── TP1.py              # 🎲 Random-walk simulation
-└── TD2.py              # 🔍 4 root-finding methods + benchmark
+│   ├── banner.svg            # ✨ Animated banner (title, author, light effects)
+│   ├── divider.svg           # ➖ Animated light-sweep section divider
+│   ├── title_*.svg           # 🎨 11 animated section titles (EN + FR)
+│   ├── random_walk_anim.svg  # 🎲 TP1 — live random walk + absorbing barriers
+│   ├── methods_cards.svg     # 🔍 TD2 — the 4 methods converging
+│   ├── podium.svg            # 🏆 Animated ranking podium (bars + confetti)
+│   ├── verdict.svg           # ✅ Animated verdict (typewriter text)
+│   ├── terminal.svg          # 💻 Animated terminal (typing install + run)
+│   ├── footer.svg            # 👋 Animated footer
+│   ├── functions.png/.gif    # 📉 Test-function curves (static + animated)
+│   ├── benchmark.png/.gif    # 🏆 Iterations comparison (static + animated)
+│   └── convergence.png/.gif  # 📈 Convergence curves (static + animated)
+├── TP1.py                   # 🎲 Random-walk simulation
+└── TD2.py                   # 🔍 4 root-finding methods + benchmark + dashboard
 ```
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🎲 TP1 — Random Walk Simulation
+
+<img src="assets/title_tp1.svg" alt="TP1 — Random Walk, animated section title" width="100%">
 
 Simulates a **simple symmetric random walk** on the integers, both freely and with absorbing barriers.
 
@@ -81,11 +94,15 @@ so absorption happens quickly in practice (a few hundred steps on average).
 
 ### What the figure shows
 
+<img src="assets/random_walk_anim.svg" alt="Animated random walk — a particle traces its path between two absorbing barriers at ±30" width="100%">
+
 The walk trajectories together with the two barrier lines drawn in **red dashed** style, with an equal aspect ratio and a viewport focused on the first steps (`x ∈ [0, 50]`, `y ∈ [-35, 35]`).
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🔍 TD2 — Four Root-Finding Methods
+
+<img src="assets/title_td2.svg" alt="TD2 — Root Finding ×4, animated section title" width="100%">
 
 A single hardened file implementing **four** classic iterative methods to solve $f(x) = 0$, a dispatcher, and a **benchmark engine** that measures which method is the fastest.
 
@@ -122,6 +139,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
 **⑤ Dispatcher** (`dispatch`) — uses Python 3.10 **structural pattern matching** (`match` / `case`) to route a method name (or function) to the right solver.
 
+<img src="assets/methods_cards.svg" alt="The 4 root-finding methods converging toward the root — animated" width="100%">
+
 ### Quick comparison
 
 | Method | Order of convergence | Needs $f'$ | Initial data | Bracket preserved |
@@ -133,9 +152,11 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
 > ⚠️ **Multiple roots change everything:** when the root has multiplicity $m > 1$, Newton's quadratic order collapses to a linear rate $\frac{m-1}{m}$ — and bracketing methods become competitive. The benchmark below proves it.
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🏆 Benchmark — which method is the fastest?
+
+<img src="assets/title_benchmark.svg" alt="Speed Benchmark, animated section title" width="100%">
 
 `TD2.py` runs **4 methods × 4 functions** and measures, up to the precision target $|x - x^\star| \le 10^{-10}$:
 
@@ -166,6 +187,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
 *\* wall-time is indicative at microsecond scale.*
 
+<img src="assets/podium.svg" alt="Animated ranking podium — dichoto 🥇, newton 🥈, secante 🥉, regula falsi 4th" width="100%">
+
 > ### ✅ Verdict
 > **Overall champion: `dichoto` — 31.75 iterations on average**, because dichotomy is *immune to root multiplicity*: it halves the interval no matter the shape of $f$.
 > - **On simple roots, `newton` wins big: only 4 iterations** (quadratic convergence) — the fastest when $f'$ is available.
@@ -174,13 +197,17 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 >
 > *No universally best method: **Newton for simple roots with a derivative, dichotomy when convergence must be guaranteed.***
 
+<img src="assets/verdict.svg" alt="Animated verdict — dichoto wins, typewriter effect" width="100%">
+
 ![Iterations benchmark — animated](assets/benchmark_anim.gif)
 
 ![Convergence curves — animated](assets/convergence_anim.gif)
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🚀 Getting started
+
+<img src="assets/title_start.svg" alt="Getting Started, animated section title" width="100%">
 
 ### Requirements
 
@@ -191,6 +218,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 - **Pillow** — animated GIF export (installed automatically as a Matplotlib dependency)
 
 ### Installation
+
+<img src="assets/terminal.svg" alt="Animated terminal — clone, install and run the benchmark" width="100%">
 
 ```bash
 git clone https://github.com/PascalTapindjie/Numerical-Analysis.git
@@ -211,6 +240,8 @@ python TD2.py --no-plot   # benchmark + charts, no GUI window
 ---
 
 ## 📊 Example output
+
+<img src="assets/title_output.svg" alt="Example Output, animated section title" width="100%">
 
 ```
 ====================================================================================
@@ -235,22 +266,27 @@ f1 : 3cos(x) - 2ln(x+1) - 1   [racine simple (transcendante)]
 
 Three static charts and their **animated GIF versions** are then written to `assets/`: `functions.png` / `functions_anim.gif`, `convergence.png` / `convergence_anim.gif`, `benchmark.png` / `benchmark_anim.gif` — the GIFs loop forever and are what you see embedded above.
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🗺️ Roadmap & known limitations
+
+<img src="assets/title_roadmap.svg" alt="Roadmap, animated section title" width="100%">
 
 - [x] **Harden `TD2.py`** — sign-change validation, $f'(x)=0$ guard, stall detection, tolerance-based early stop.
 - [x] **Add a 4th method** (`regula_falsi`) and a **benchmark engine** proving which method is fastest.
 - [x] **Interactive dashboard** — `python TD2.py` opens the 4 diagrams in a 2×2 split-screen Tkinter window.
 - [x] **Animated README charts** — GIF versions of every graph (curves drawn progressively, bars growing).
+- [x] **Fully animated README** — 30+ SMIL SVG animations: section titles, light-sweep dividers, live random walk, method cards, podium with confetti, typewriter verdict, animated terminal, footer.
 - [ ] **`TP1.py` figure hygiene** — split the free walk and the bounded walk onto separate figures, and call `plt.show()`.
 - [ ] **Parameterisation** — expose step counts, barriers and intervals as constants or CLI arguments.
 - [ ] **`requirements.txt`** for one-line environment setup.
 - [ ] **Automated tests** (`pytest`).
 
----
+<img src="assets/divider.svg" alt="" width="100%">
 
 ## 🤝 Contributing
+
+<img src="assets/title_contributing.svg" alt="Contributing, animated section title" width="100%">
 
 Contributions, suggestions and bug reports are welcome!
 
@@ -260,10 +296,18 @@ Contributions, suggestions and bug reports are welcome!
 4. 🚀 Push to the branch (`git push origin feature/amazing-improvement`)
 5. 🔀 Open a **Pull Request**
 
+<img src="assets/divider.svg" alt="" width="100%">
+
 ## ✍️ Author
+
+<img src="assets/title_author.svg" alt="Author, animated section title" width="100%">
 
 **Pascal Tapindjie** — [@PascalTapindjie](https://github.com/PascalTapindjie)
 
 ## 📜 License
 
+<img src="assets/title_license.svg" alt="License, animated section title" width="100%">
+
 This repository does not currently declare a license. If you wish to reuse the code, please open an issue.
+
+<img src="assets/footer.svg" alt="Animated footer — thanks for visiting!" width="100%">

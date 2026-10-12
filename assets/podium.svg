@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 530" width="1200" height="530">
+  <defs>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="2" y="2" width="1196" height="526" rx="20" fill="#0f172a"/>
+  <rect x="2" y="2" width="1196" height="526" rx="20" fill="none" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="40" y="48" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="23" font-weight="700" fill="#fbbf24">🏆 General ranking — mean iterations to reach 1e-10</text>
+  <text x="40" y="74" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="14" fill="#94a3b8">lower is better · target |x - x*| ≤ 1e-10</text>
+  <ellipse cx="680" cy="250" rx="150" ry="200" fill="#fbbf24" opacity=".07" filter="url(#glow)">
+    <animate attributeName="opacity" values=".05;.16;.05" dur="2.8s" repeatCount="indefinite"/>
+  </ellipse>
+  <text x="665" y="105" text-anchor="middle" font-size="52" filter="url(#glow)">♛
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -10;0 0" dur="2.2s" repeatCount="indefinite"/>
+  </text>
+  <line x1="60" y1="440" x2="1140" y2="440" stroke="#334155" stroke-width="2"/>
+  
+  <g>
+    <rect x="110" y="440" width="180" height="0" rx="8" fill="#34d399" opacity=".92">
+      <animate attributeName="height" values="0;100" dur="1.3s" begin="0.55s;9.6s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+      <animate attributeName="y" values="440;340" dur="1.3s" begin="0.55s;9.6s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+    </rect>
+    <rect x="104" y="294" width="192" height="40" fill="url(#shine)" transform="skewX(-18)" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="1.85s;10.9s" fill="freeze"/>
+      <animate attributeName="x" values="-150;410" dur="2.2s" begin="1.85s" repeatCount="indefinite"/>
+    </rect>
+    <text x="200" y="288" text-anchor="middle" font-size="30" opacity="0">4️⃣
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.6500000000000001s;10.7s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="1.8s" begin="2.05s" repeatCount="indefinite"/>
+    </text>
+    <text x="200" y="374" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" fill="#0f172a" opacity="0">253.00
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.75s;10.8s" fill="freeze"/>
+    </text>
+    <text x="200" y="470" text-anchor="middle" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="19" font-weight="700" fill="#34d399">regula_falsi</text>
+  </g>
+  <g>
+    <rect x="350" y="440" width="180" height="0" rx="8" fill="#f472b6" opacity=".92">
+      <animate attributeName="height" values="0;210" dur="1.3s" begin="0.3s;9.3s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+      <animate attributeName="y" values="440;230" dur="1.3s" begin="0.3s;9.3s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+    </rect>
+    <rect x="344" y="184" width="192" height="40" fill="url(#shine)" transform="skewX(-18)" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="1.6s;10.6s" fill="freeze"/>
+      <animate attributeName="x" values="90;650" dur="2.2s" begin="1.6s" repeatCount="indefinite"/>
+    </rect>
+    <text x="440" y="178" text-anchor="middle" font-size="30" opacity="0">🥈
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.4000000000000001s;10.4s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="1.8s" begin="1.8s" repeatCount="indefinite"/>
+    </text>
+    <text x="440" y="264" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" fill="#0f172a" opacity="0">40.00
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.5s;10.5s" fill="freeze"/>
+    </text>
+    <text x="440" y="470" text-anchor="middle" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="19" font-weight="700" fill="#f472b6">newton</text>
+  </g>
+  <g>
+    <rect x="590" y="440" width="180" height="0" rx="8" fill="#fbbf24" opacity=".92">
+      <animate attributeName="height" values="0;290" dur="1.3s" begin="0.05s;9.1s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+      <animate attributeName="y" values="440;150" dur="1.3s" begin="0.05s;9.1s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+    </rect>
+    <rect x="584" y="104" width="192" height="40" fill="url(#shine)" transform="skewX(-18)" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="1.35s;10.4s" fill="freeze"/>
+      <animate attributeName="x" values="330;890" dur="2.2s" begin="1.35s" repeatCount="indefinite"/>
+    </rect>
+    <text x="680" y="98" text-anchor="middle" font-size="30" opacity="0">🥇
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.1500000000000001s;10.2s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="1.8s" begin="1.55s" repeatCount="indefinite"/>
+    </text>
+    <text x="680" y="184" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" fill="#0f172a" opacity="0">31.75
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.25s;10.2s" fill="freeze"/>
+    </text>
+    <text x="680" y="470" text-anchor="middle" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="19" font-weight="700" fill="#fbbf24">dichoto</text>
+  </g>
+  <g>
+    <rect x="830" y="440" width="180" height="0" rx="8" fill="#fbbf24" opacity=".92">
+      <animate attributeName="height" values="0;160" dur="1.3s" begin="0.4s;9.4s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+      <animate attributeName="y" values="440;280" dur="1.3s" begin="0.4s;9.4s" fill="freeze" calcMode="spline" keySplines=".22 1 .36 1" keyTimes="0;1"/>
+    </rect>
+    <rect x="824" y="234" width="192" height="40" fill="url(#shine)" transform="skewX(-18)" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="1.7000000000000002s;10.7s" fill="freeze"/>
+      <animate attributeName="x" values="570;1130" dur="2.2s" begin="1.7000000000000002s" repeatCount="indefinite"/>
+    </rect>
+    <text x="920" y="228" text-anchor="middle" font-size="30" opacity="0">🥉
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.5s;10.5s" fill="freeze"/>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -8;0 0" dur="1.8s" begin="1.9s" repeatCount="indefinite"/>
+    </text>
+    <text x="920" y="314" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="19" font-weight="700" fill="#0f172a" opacity="0">57.75
+      <animate attributeName="opacity" values="0;1" dur=".4s" begin="1.6s;10.6s" fill="freeze"/>
+    </text>
+    <text x="920" y="470" text-anchor="middle" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="19" font-weight="700" fill="#fbbf24">secante</text>
+  </g>
+  <circle cx="300" cy="120" r="1.8" fill="#fcd34d" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.9s" begin="0.00s" repeatCount="indefinite"/></circle><circle cx="560" cy="90" r="1.6" fill="#e2e8f0" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.9s" begin="0.43s" repeatCount="indefinite"/></circle><circle cx="800" cy="130" r="1.7" fill="#fcd34d" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.9s" begin="0.86s" repeatCount="indefinite"/></circle><circle cx="1050" cy="100" r="1.6" fill="#e2e8f0" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.9s" begin="1.29s" repeatCount="indefinite"/></circle><circle cx="150" cy="180" r="1.5" fill="#a5b4fc" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.9s" begin="1.72s" repeatCount="indefinite"/></circle>
+  <rect x="120" y="-14" width="7" height="12" rx="2" fill="#38bdf8" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="1.00s;10.00s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="1.00s;10.00s" fill="freeze"/></rect><rect x="203" y="-14" width="7" height="12" rx="2" fill="#34d399" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="1.18s;10.18s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="1.18s;10.18s" fill="freeze"/></rect><rect x="286" y="-14" width="7" height="12" rx="2" fill="#fbbf24" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="1.36s;10.36s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="1.36s;10.36s" fill="freeze"/></rect><rect x="369" y="-14" width="7" height="12" rx="2" fill="#f472b6" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="1.54s;10.54s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="1.54s;10.54s" fill="freeze"/></rect><rect x="452" y="-14" width="7" height="12" rx="2" fill="#a78bfa" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="1.72s;10.72s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="1.72s;10.72s" fill="freeze"/></rect><rect x="535" y="-14" width="7" height="12" rx="2" fill="#fb923c" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="1.90s;10.90s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="1.90s;10.90s" fill="freeze"/></rect><rect x="618" y="-14" width="7" height="12" rx="2" fill="#38bdf8" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="2.08s;11.08s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="2.08s;11.08s" fill="freeze"/></rect><rect x="701" y="-14" width="7" height="12" rx="2" fill="#34d399" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="2.26s;11.26s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="2.26s;11.26s" fill="freeze"/></rect><rect x="784" y="-14" width="7" height="12" rx="2" fill="#fbbf24" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="2.44s;11.44s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="2.44s;11.44s" fill="freeze"/></rect><rect x="867" y="-14" width="7" height="12" rx="2" fill="#f472b6" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="2.62s;11.62s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="2.62s;11.62s" fill="freeze"/></rect><rect x="950" y="-14" width="7" height="12" rx="2" fill="#a78bfa" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="2.80s;11.80s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="2.80s;11.80s" fill="freeze"/></rect><rect x="1033" y="-14" width="7" height="12" rx="2" fill="#fb923c" opacity="0"><animate attributeName="y" values="-14;520" dur="3.2s" begin="2.98s;11.98s" fill="freeze"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.8;1" dur="3.2s" begin="2.98s;11.98s" fill="freeze"/></rect>
+</svg>

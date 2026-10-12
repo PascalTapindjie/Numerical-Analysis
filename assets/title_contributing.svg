@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 110" width="1200" height="110">
+  <defs>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#ffffff" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fb923c"/><stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="1196" height="106" rx="18" fill="#0f172a" opacity=".96"/>
+  <rect x="2" y="2" width="1196" height="106" rx="18" fill="none" stroke="#f97316" stroke-opacity=".55" stroke-width="1.5"/>
+  <rect x="16" y="24" width="6" height="62" rx="3" fill="url(#tg)">
+    <animate attributeName="height" values="40;70;40" dur="3.4s" repeatCount="indefinite"/>
+    <animate attributeName="y" values="34;19;34" dur="3.4s" repeatCount="indefinite"/>
+  </rect>
+  <text x="52" y="74" font-size="46">🤝
+    <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0" dur="3s" repeatCount="indefinite"/>
+  </text>
+  <text x="120" y="56" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="36" font-weight="700" fill="url(#tg)">Contributing</text>
+  <text x="122" y="86" font-family="'Segoe UI', Verdana, Geneva, sans-serif" font-size="15" fill="#94a3b8">Fork - Branch - Pull Request - all welcome</text>
+  <rect x="430" y="8" width="240" height="94" fill="url(#shine)" transform="skewX(-18)">
+    <animate attributeName="x" values="-500;1500" dur="5s" begin="0s" repeatCount="indefinite"/>
+  </rect>
+  <circle cx="1050" cy="26" r="1.7" fill="#fb923c" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.8s" begin="0.00s" repeatCount="indefinite"/></circle><circle cx="1105" cy="60" r="1.4" fill="#e2e8f0" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.8s" begin="0.43s" repeatCount="indefinite"/></circle><circle cx="1075" cy="86" r="1.5" fill="#fb923c" opacity=".2"><animate attributeName="opacity" values=".15;.95;.15" dur="2.8s" begin="0.86s" repeatCount="indefinite"/></circle>
+</svg>
