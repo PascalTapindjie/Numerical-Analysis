@@ -3,8 +3,8 @@
   <img src="assets/banner.svg" alt="Numerical Analysis — bannière animée par Pascal Tapindjie" width="100%">
 
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?lines=3+m%C3%A9thodes+de+r%C3%A9solution+%E2%9A%A1;Marches+al%C3%A9atoires+Monte-Carlo+%F0%9F%8E%B2;Visualis%C3%A9+avec+NumPy+%2B+Matplotlib+%F0%9F%93%8A&font=Fira%20Code&center=true&vCenter=true&width=660&height=45&duration=2600&pause=800&size=22&color=A5B4FC">
-    <img src="https://readme-typing-svg.demolab.com/?lines=3+m%C3%A9thodes+de+r%C3%A9solution+%E2%9A%A1;Marches+al%C3%A9atoires+Monte-Carlo+%F0%9F%8E%B2;Visualis%C3%A9+avec+NumPy+%2B+Matplotlib+%F0%9F%93%8A&font=Fira%20Code&center=true&vCenter=true&width=660&height=45&duration=2600&pause=800&size=22&color=4338CA" alt="Animation de texte — méthodes de résolution, marches aléatoires, visualisation" height="45">
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com/?lines=4+m%C3%A9thodes+de+r%C3%A9solution+%E2%9A%A1;Benchmark+de+vitesse+%F0%9F%8F%81;Marches+al%C3%A9atoires+Monte-Carlo+%F0%9F%8E%B2&font=Fira%20Code&center=true&vCenter=true&width=660&height=45&duration=2600&pause=800&size=22&color=A5B4FC">
+    <img src="https://readme-typing-svg.demolab.com/?lines=4+m%C3%A9thodes+de+r%C3%A9solution+%E2%9A%A1;Benchmark+de+vitesse+%F0%9F%8F%81;Marches+al%C3%A9atoires+Monte-Carlo+%F0%9F%8E%B2&font=Fira%20Code&center=true&vCenter=true&width=660&height=45&duration=2600&pause=800&size=22&color=4338CA" alt="Animation de texte — 4 méthodes de résolution, benchmark de vitesse, marches aléatoires" height="45">
   </picture>
 
   <br/>
@@ -29,14 +29,9 @@ Ce dépôt rassemble des projets pédagogiques (*Travaux Pratiques* / *Travaux D
 | | Projet | Thématique |
 |:-:|---|---|
 | 🎲 | [`TP1.py`](TP1.py) | **Simulation stochastique** — marche aléatoire 1D, libre et à barrières absorbantes |
-| 🔍 | [`TD2.py`](TD2.py) | **Numérique déterministe** — recherche de racines : dichotomie, sécante & Newton |
+| 🔍 | [`TD2.py`](TD2.py) | **Numérique déterministe** — 4 méthodes de recherche de racines (dichotomie, fausse position, sécante, Newton) + **benchmark de vitesse** |
 
-Chaque script est **autonome** : il définit le modèle mathématique, lance le calcul et visualise les résultats avec `matplotlib`. Les deux fichiers s'exécutent directement, sans argument :
-
-```bash
-python TP1.py
-python TD2.py
-```
+Chaque script est **autonome** : il définit le modèle mathématique, lance le calcul et visualise les résultats avec `matplotlib`.
 
 ## 📂 Structure du dépôt
 
@@ -45,9 +40,12 @@ Numerical-Analysis/
 ├── README.md           # 🇬🇧 Documentation (English)
 ├── README.fr.md        # 🇫🇷 Documentation (Français)
 ├── assets/
-│   └── banner.svg      # ✨ Bannière animée (titre & auteur, effets lumineux)
+│   ├── banner.svg      # ✨ Bannière animée (titre & auteur, effets lumineux)
+│   ├── functions.png   # 📉 Courbes des fonctions de test
+│   ├── benchmark.png   # 🏆 Comparaison du nombre d'itérations
+│   └── convergence.png # 📈 Courbes de convergence (erreur log)
 ├── TP1.py              # 🎲 Simulation de marche aléatoire
-└── TD2.py              # 🔍 Méthodes de recherche de racines
+└── TD2.py              # 🔍 4 méthodes de recherche de racines + benchmark
 ```
 
 ---
@@ -87,46 +85,98 @@ Les trajectoires de la marche avec les deux barrières tracées en **pointillés
 
 ---
 
-## 🔍 TD2 — Méthodes de recherche de racines
+## 🔍 TD2 — Quatre méthodes de recherche de racines
 
-Implémente trois méthodes classiques itératives pour résoudre $f(x) = 0$, ainsi qu'un dispatcher pour les exécuter de manière uniforme sur une batterie de fonctions de test.
+Un fichier unique et « blindé » implémentant **quatre** méthodes itératives classiques pour résoudre $f(x) = 0$, un dispatcher, et un **moteur de benchmark** qui mesure quelle méthode est la plus rapide.
+
+> **Améliorations par rapport à la version d'origine :** validation de l'encadrement (changement de signe requis), protection contre $f'(x) = 0$, détection de stagnation, arrêt anticipé sur tolérance (plus de valeurs dupliquées en fin de liste), garde-fou contre la divergence, compteurs d'évaluations et chronométrage précis.
 
 ### Fonctions de test
 
 | ID | $f(x)$ | $f'(x)$ | Racine $x^\star$ | Caractère |
 |---|---|---|---|---|
-| `f1` | $3\cos x - 2\ln(x+1) - 1$ | $-3\sin x - \dfrac{2}{x+1}$ | $\approx 0{,}7737$ | Transcendante |
-| `f2` | $2x - 1$ | $2$ | $0{,}5$ | Affine — Newton converge en **1 étape** |
-| `f3` | $(2x-1)^3$ | $6(2x-1)^2$ | $0{,}5$ | **Racine triple** — Newton dégénère en linéaire (taux ×⅔) |
-| `f4` | $(2x-1)^5$ | $10(2x-1)^4$ | $0{,}5$ | **Racine quintuple** — Newton dégénère en linéaire (taux ×⅘) |
+| `f1` | $3\cos x - 2\ln(x+1) - 1$ | $-3\sin x - \dfrac{2}{x+1}$ | $0{,}7736549189316632$ | Transcendante, racine simple |
+| `f2` | $2x - 1$ | $2$ | $0{,}5$ | Affine — 3 méthodes convergent en **1 étape** |
+| `f3` | $(2x-1)^3$ | $6(2x-1)^2$ | $0{,}5$ | **Racine triple** (m = 3) |
+| `f4` | $(2x-1)^5$ | $10(2x-1)^4$ | $0{,}5$ | **Racine quintuple** (m = 5) |
 
-Chaque fonction est tracée pour visualiser sa forme avant de lancer les itérations.
+![Fonctions de test](assets/functions.png)
 
 ### Algorithmes implémentés
 
-**① Dichotomie** (`dichoto`) — méthode par encadrement. Réitère le demi-segment $[a_k, b_k]$ contenant un changement de signe et ne garde que la moitié où $f$ change encore de signe :
+**① Dichotomie** (`dichoto`) — méthode par encadrement. Réitère le demi-segment $[a_k, b_k]$ contenant un changement de signe :
 
 $$m_k = \frac{a_k + b_k}{2}, \qquad \text{erreur} \le \frac{b-a}{2^{\,n}} \quad \text{après } n \text{ pas}$$
 
-**② Méthode de la sécante** (`secante`) — ouvre l'encadrement en interpolant linéairement les deux itérés précédents :
+**② Fausse position** (`regula_falsi`) — encadrement + interpolation linéaire, sans dérivée :
+
+$$c = \frac{a\,f(b) - b\,f(a)}{f(b) - f(a)}$$
+
+**③ Méthode de la sécante** (`secante`) — ouvre l'encadrement en interpolant les deux itérés précédents :
 
 $$x_{k+1} = x_k - f(x_k)\,\frac{x_k - x_{k-1}}{f(x_k) - f(x_{k-1})}$$
 
-**③ Newton–Raphson** (`newton`) — itération par tangente, nécessite la dérivée :
+**④ Newton–Raphson** (`newton`) — itération par tangente, nécessite la dérivée :
 
 $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 
-**④ Dispatcher** (`dispatch`) — utilise le **pattern matching structurel** de Python 3.10 (`match` / `case`) pour router un nom de méthode vers le bon solveur avec les bons arguments.
+**⑤ Dispatcher** (`dispatch`) — utilise le **pattern matching structurel** de Python 3.10 (`match` / `case`) pour router un nom de méthode (ou une fonction) vers le bon solveur.
 
 ### Comparaison rapide
 
-| Méthode | Fonction | Ordre de convergence | Besoin de $f'$ | Données initiales | Coût / itération |
-|---|---|:-:|:-:|---|:-:|
-| `dichoto` | Dichotomie | 1 (erreur ÷ 2 à chaque pas) | ❌ | Encadrement $[a,b]$ avec changement de signe | 1 éval. de $f$ |
-| `secante` | Sécante | ≈ 1,618 (super-linéaire) | ❌ | Deux points $x_0, x_1$ | 1 éval. de $f$ |
-| `newton` | Newton | 2 (quadratique) ✨ | ✅ | Un point $x_0$ | 1 éval. de $f$ + 1 de $f'$ |
+| Méthode | Ordre de convergence | Besoin de $f'$ | Données initiales | Encadrement préservé |
+|---|:-:|:-:|---|:-:|
+| `dichoto` | 1 (erreur ÷ 2 à chaque pas) | ❌ | Encadrement $[a,b]$ avec changement de signe | ✅ |
+| `regula_falsi` | 1 (peut stagner) | ❌ | Encadrement $[a,b]$ avec changement de signe | ✅ |
+| `secante` | ≈ 1,618 (super-linéaire) | ❌ | Deux points $x_0, x_1$ | ❌ |
+| `newton` | 2 (quadratique) ✨ | ✅ | Un point $x_0$ | ❌ |
 
-> ⚠️ **Racines multiples :** sur `f3` et `f4`, la racine est d'ordre $m > 1$, l'ordre quadratique de Newton s'effondre en un taux linéaire $\frac{m-1}{m}$ — une bonne illustration du fait que *l'ordre théorique n'est pas observé sur les racines dégénérées*.
+> ⚠️ **Racines multiples : tout change !** Quand la racine est d'ordre $m > 1$, l'ordre quadratique de Newton s'effondre en un taux linéaire $\frac{m-1}{m}$ — et les méthodes par encadrement deviennent compétitives. Le benchmark ci-dessous le prouve.
+
+---
+
+## 🏆 Benchmark — quelle méthode est la plus rapide ?
+
+`TD2.py` exécute **4 méthodes × 4 fonctions** et mesure, jusqu'à la précision $|x - x^\star| \le 10^{-10}$ :
+
+| Métrique | Définition |
+|---|---|
+| **Itérations** ⭐ | itérations nécessaires pour atteindre la cible — *métrique principale* |
+| **Évaluations de f** | appels à $f$ (et $f'$) jusqu'à ce point |
+| **Temps** | meilleur de 200 exécutions avec `time.perf_counter()` |
+
+### Résultats — itérations jusqu'à 1e-10
+
+| Fonction | `dichoto` | `regula_falsi` | `secante` | `newton` | 🏆 Vainqueur |
+|---|:-:|:-:|:-:|:-:|---|
+| **f1** — racine simple | 31 | 11 | 5 | **4** | **newton** |
+| **f2** — affine | 32 | **1** | **1** | **1** | égalité (3 méthodes) |
+| **f3** — racine triple | **32** | ✗ NC (stagne) | 80 | 55 | **dichoto** |
+| **f4** — racine quintuple | **32** | ✗ NC (stagne) | 145 | 100 | **dichoto** |
+| **Moyenne** | **31.75** 🥇 | 253.00 | 57.75 | 40.00 🥈 | |
+
+### Classement général
+
+| Rang | Méthode | Itérations moy. | Évals f moy. | Temps moyen* | Victoires |
+|:-:|---|:-:|:-:|:-:|:-:|
+| 🥇 1 | **`dichoto`** | **31,75** | **33,75** | ~38 µs | 2 |
+| 🥈 2 | `newton` | 40,00 | 40,00 | ~137 µs | 1 |
+| 🥉 3 | `secante` | 57,75 | 59,75 | ~169 µs | 0 |
+| 4 | `regula_falsi` | 253,00 | 255,00 | ~315 µs | 1 |
+
+*\* le temps mural est indicatif à l'échelle des microsecondes.*
+
+> ### ✅ Verdict
+> **Champion toutes fonctions confondues : `dichoto` — 31,75 itérations en moyenne**, car la dichotomie est *immunisée contre la multiplicité des racines* : elle divise l'intervalle quoi qu'il arrive à la forme de $f$.
+> - **Sur les racines simples, `newton` domine : seulement 4 itérations** (convergence quadratique) — le plus rapide quand $f'$ est disponible.
+> - **Sur les racines multiples (m = 3, 5), Newton ralentit** (taux ×⅔, ×⅘) et se fait battre par la dichotomie.
+> - **`regula_falsi` stagne sur f3/f4** (un bout reste bloqué) : il ne converge pas en 500 pas — **NC**.
+>
+> *Pas de méthode universellement meilleure : **Newton pour les racines simples avec dérivée, dichotomie quand la convergence doit être garantie.***
+
+![Comparaison des itérations](assets/benchmark.png)
+
+![Courbes de convergence](assets/convergence.png)
 
 ---
 
@@ -149,39 +199,50 @@ pip install numpy matplotlib
 ### Utilisation
 
 ```bash
-python TP1.py   # 🎲 trajectoires de marche aléatoire
-python TD2.py   # 🔍 fonctions de test + itérations de Newton
+python TP1.py            # 🎲 trajectoires de marche aléatoire
+python TD2.py            # 🔍 benchmark : tableaux, verdict + 3 graphiques
+python TD2.py --no-plot  # benchmark sans ouvrir de fenêtre de graphiques
 ```
 
-> 💡 **Astuce :** les environnements interactifs (Spyder, PyCharm, Jupyter) affichent les figures automatiquement. Depuis un terminal classique, ajoutez `plt.show()` à la fin du script pour conserver les fenêtres ouvertes.
+> 💡 **Astuce :** les environnements interactifs (Spyder, PyCharm, Jupyter) affichent les figures automatiquement. Depuis un terminal classique, `plt.show()` ouvre les fenêtres de graphiques à la fin de l'exécution.
 
 ---
 
 ## 📊 Exemple de sortie
 
-L'exécution de `TD2.py` affiche les itérés de Newton sur la fonction affine `f2` (racine exacte atteinte dès la première étape, puis conservée) :
-
 ```
-[0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
-[0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+====================================================================================
+ BENCHMARK - 4 methodes x 4 fonctions   (objectif : |x - x*| <= 1e-10)
+====================================================================================
+
+f1 : 3cos(x) - 2ln(x+1) - 1   [racine simple (transcendante)]
+  methode          iters  evals f  evals fp  temps (us)   erreur fin.  remarque
+  newton               4        4         4       25.40      0.00e+00  <-- PLUS RAPIDE
+  secante              5        7         0       29.50      0.00e+00
+  regula_falsi        11       13         0       42.90      0.00e+00
+  dichoto             31       33         0       68.30      0.00e+00
+...
+ CLASSEMENT GENERAL (moyenne sur les 4 fonctions)
+  1     dichoto               31.75         33.75          38.425          2
+  2     newton                40.00         40.00         136.575          1
+  3     secante               57.75         59.75         169.200          0
+  4     regula_falsi         253.00        255.00         314.900          1
+
+  VERDICT : la methode la plus rapide est  << dichoto >>
 ```
 
-et ouvre deux figures :
-
-- **Figure 1** — courbes de `f1`, `f2`, `f3` sur $[0{,}1;\ 1{,}5]$ ;
-- **Figure 2** — courbe de `f4` isolée (son amplitude $[-1;\ 32]$ écraserait les autres).
+Trois graphiques sont ensuite enregistrés dans `assets/` : `functions.png`, `convergence.png`, `benchmark.png`.
 
 ---
 
 ## 🗺️ Feuille de route & limites connues
 
-Notes honnêtes sur l'état actuel du code et sa direction :
-
-- [ ] **Safeguards dans `TD2.py`** — valider le changement de signe dans `dichoto`, protéger contre $f'(x)=0$ dans `newton`, et ajouter une tolérance commune `tol` avec arrêt anticipé au lieu d'un nombre d'étapes fixe `nbetap`.
-- [ ] **Hygiène des figures dans `TP1.py`** — séparer la marche libre et la marche bornée sur deux figures distinctes, et appeler `plt.show()`.
-- [ ] **Paramétrage** — exposer les nombres de pas, barrières et intervalles en constantes ou arguments CLI au lieu de valeurs en dur.
+- [x] **Blinder `TD2.py`** — validation du changement de signe, garde $f'(x)=0$, détection de stagnation, arrêt sur tolérance.
+- [x] **Ajouter une 4ᵉ méthode** (`regula_falsi`) et un **moteur de benchmark** qui prouve quelle méthode est la plus rapide.
+- [ ] **Hygiène des figures dans `TP1.py`** — séparer marche libre et marche bornée sur deux figures, et appeler `plt.show()`.
+- [ ] **Paramétrage** — exposer nombres de pas, barrières et intervalles en constantes ou arguments CLI.
 - [ ] **`requirements.txt`** pour une installation en une ligne.
-- [ ] **Tests automatisés** (`pytest`) + un graphique de convergence comparant les trois méthodes aux racines exactes (`xstar`).
+- [ ] **Tests automatisés** (`pytest`).
 
 ---
 
