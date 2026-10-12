@@ -40,10 +40,10 @@ Numerical-Analysis/
 ├── README.md           # 🇬🇧 Documentation (English)
 ├── README.fr.md        # 🇫🇷 Documentation (Français)
 ├── assets/
-│   ├── banner.svg      # ✨ Animated banner (title & author, light effects)
-│   ├── functions.png   # 📉 Test-function curves
-│   ├── benchmark.png   # 🏆 Iterations-to-target comparison
-│   └── convergence.png # 📈 Convergence curves (log error)
+│   ├── banner.svg           # ✨ Animated banner (title & author, light effects)
+│   ├── functions.png/.gif   # 📉 Test-function curves (static + animated)
+│   ├── benchmark.png/.gif   # 🏆 Iterations-to-target comparison (static + animated)
+│   └── convergence.png/.gif # 📈 Convergence curves (static + animated)
 ├── TP1.py              # 🎲 Random-walk simulation
 └── TD2.py              # 🔍 4 root-finding methods + benchmark
 ```
@@ -100,7 +100,7 @@ A single hardened file implementing **four** classic iterative methods to solve 
 | `f3` | $(2x-1)^3$ | $6(2x-1)^2$ | $0.5$ | **Triple root** (m = 3) |
 | `f4` | $(2x-1)^5$ | $10(2x-1)^4$ | $0.5$ | **Quintic root** (m = 5) |
 
-![Test functions](assets/functions.png)
+![Test functions — animated](assets/functions_anim.gif)
 
 ### Implemented algorithms
 
@@ -174,9 +174,9 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 >
 > *No universally best method: **Newton for simple roots with a derivative, dichotomy when convergence must be guaranteed.***
 
-![Iterations benchmark](assets/benchmark.png)
+![Iterations benchmark — animated](assets/benchmark_anim.gif)
 
-![Convergence curves](assets/convergence.png)
+![Convergence curves — animated](assets/convergence_anim.gif)
 
 ---
 
@@ -187,6 +187,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 - **Python ≥ 3.10** (uses structural pattern matching in `TD2.py`)
 - **NumPy** — vectorised maths
 - **Matplotlib** — plotting
+- **Tkinter** — the dashboard window (bundled with python.org installers; on Debian/Ubuntu: `sudo apt install python3-tk`)
+- **Pillow** — animated GIF export (installed automatically as a Matplotlib dependency)
 
 ### Installation
 
@@ -200,11 +202,11 @@ pip install numpy matplotlib
 
 ```bash
 python TP1.py         # 🎲 random-walk trajectories
-python TD2.py         # 🔍 benchmark: tables, verdict + 3 charts
-python TD2.py --no-plot   # benchmark without opening chart windows
+python TD2.py         # 🔍 benchmark + dashboard (4 diagrams, split screen) + PNG/GIF charts
+python TD2.py --no-plot   # benchmark + charts, no GUI window
 ```
 
-> 💡 **Tip:** interactive environments (Spyder, PyCharm, Jupyter) display the figures automatically. From a plain terminal, `plt.show()` opens the chart windows at the end of the run.
+> 💡 **Live dashboard:** running `python TD2.py` opens an **interactive Tkinter window** where the four benchmark diagrams — **① test functions · ② convergence · ③ iterations per function · ④ overall ranking** — are displayed in a **2×2 split screen** with the champion announced in the header. PNG and animated GIF charts are written to `assets/` in every case.
 
 ---
 
@@ -231,7 +233,7 @@ f1 : 3cos(x) - 2ln(x+1) - 1   [racine simple (transcendante)]
   VERDICT : la methode la plus rapide est  << dichoto >>
 ```
 
-Three charts are then written to `assets/`: `functions.png`, `convergence.png`, `benchmark.png`.
+Three static charts and their **animated GIF versions** are then written to `assets/`: `functions.png` / `functions_anim.gif`, `convergence.png` / `convergence_anim.gif`, `benchmark.png` / `benchmark_anim.gif` — the GIFs loop forever and are what you see embedded above.
 
 ---
 
@@ -239,6 +241,8 @@ Three charts are then written to `assets/`: `functions.png`, `convergence.png`, 
 
 - [x] **Harden `TD2.py`** — sign-change validation, $f'(x)=0$ guard, stall detection, tolerance-based early stop.
 - [x] **Add a 4th method** (`regula_falsi`) and a **benchmark engine** proving which method is fastest.
+- [x] **Interactive dashboard** — `python TD2.py` opens the 4 diagrams in a 2×2 split-screen Tkinter window.
+- [x] **Animated README charts** — GIF versions of every graph (curves drawn progressively, bars growing).
 - [ ] **`TP1.py` figure hygiene** — split the free walk and the bounded walk onto separate figures, and call `plt.show()`.
 - [ ] **Parameterisation** — expose step counts, barriers and intervals as constants or CLI arguments.
 - [ ] **`requirements.txt`** for one-line environment setup.

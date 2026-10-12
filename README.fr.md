@@ -40,10 +40,10 @@ Numerical-Analysis/
 ├── README.md           # 🇬🇧 Documentation (English)
 ├── README.fr.md        # 🇫🇷 Documentation (Français)
 ├── assets/
-│   ├── banner.svg      # ✨ Bannière animée (titre & auteur, effets lumineux)
-│   ├── functions.png   # 📉 Courbes des fonctions de test
-│   ├── benchmark.png   # 🏆 Comparaison du nombre d'itérations
-│   └── convergence.png # 📈 Courbes de convergence (erreur log)
+│   ├── banner.svg           # ✨ Bannière animée (titre & auteur, effets lumineux)
+│   ├── functions.png/.gif   # 📉 Courbes des fonctions de test (statique + animé)
+│   ├── benchmark.png/.gif   # 🏆 Comparaison du nombre d'itérations (statique + animé)
+│   └── convergence.png/.gif # 📈 Courbes de convergence (statique + animé)
 ├── TP1.py              # 🎲 Simulation de marche aléatoire
 └── TD2.py              # 🔍 4 méthodes de recherche de racines + benchmark
 ```
@@ -100,7 +100,7 @@ Un fichier unique et « blindé » implémentant **quatre** méthodes itérative
 | `f3` | $(2x-1)^3$ | $6(2x-1)^2$ | $0{,}5$ | **Racine triple** (m = 3) |
 | `f4` | $(2x-1)^5$ | $10(2x-1)^4$ | $0{,}5$ | **Racine quintuple** (m = 5) |
 
-![Fonctions de test](assets/functions.png)
+![Fonctions de test — animé](assets/functions_anim.gif)
 
 ### Algorithmes implémentés
 
@@ -174,9 +174,9 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 >
 > *Pas de méthode universellement meilleure : **Newton pour les racines simples avec dérivée, dichotomie quand la convergence doit être garantie.***
 
-![Comparaison des itérations](assets/benchmark.png)
+![Comparaison des itérations — animé](assets/benchmark_anim.gif)
 
-![Courbes de convergence](assets/convergence.png)
+![Courbes de convergence — animé](assets/convergence_anim.gif)
 
 ---
 
@@ -187,6 +187,8 @@ $$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
 - **Python ≥ 3.10** (pattern matching structurel utilisé dans `TD2.py`)
 - **NumPy** — maths vectorielles
 - **Matplotlib** — tracés
+- **Tkinter** — fenêtre du tableau de bord (inclus avec les installateurs de python.org ; sur Debian/Ubuntu : `sudo apt install python3-tk`)
+- **Pillow** — export des GIF animés (installé automatiquement avec Matplotlib)
 
 ### Installation
 
@@ -200,11 +202,11 @@ pip install numpy matplotlib
 
 ```bash
 python TP1.py            # 🎲 trajectoires de marche aléatoire
-python TD2.py            # 🔍 benchmark : tableaux, verdict + 3 graphiques
-python TD2.py --no-plot  # benchmark sans ouvrir de fenêtre de graphiques
+python TD2.py            # 🔍 benchmark + tableau de bord (4 diagrammes, écran divisé en 4) + PNG/GIF
+python TD2.py --no-plot  # benchmark + graphiques, sans fenêtre GUI
 ```
 
-> 💡 **Astuce :** les environnements interactifs (Spyder, PyCharm, Jupyter) affichent les figures automatiquement. Depuis un terminal classique, `plt.show()` ouvre les fenêtres de graphiques à la fin de l'exécution.
+> 💡 **Tableau de bord interactif :** lancer `python TD2.py` ouvre une **fenêtre Tkinter** présentant les quatre diagrammes du benchmark — **① fonctions de test · ② convergence · ③ itérations par fonction · ④ classement général** — sur un **écran divisé en quatre (2×2)**, avec le vainqueur annoncé dans l'en-tête. Les graphiques PNG et GIF animés sont toujours écrits dans `assets/`.
 
 ---
 
@@ -231,7 +233,7 @@ f1 : 3cos(x) - 2ln(x+1) - 1   [racine simple (transcendante)]
   VERDICT : la methode la plus rapide est  << dichoto >>
 ```
 
-Trois graphiques sont ensuite enregistrés dans `assets/` : `functions.png`, `convergence.png`, `benchmark.png`.
+Trois graphiques statiques et leurs **versions GIF animées** sont ensuite enregistrés dans `assets/` : `functions.png` / `functions_anim.gif`, `convergence.png` / `convergence_anim.gif`, `benchmark.png` / `benchmark_anim.gif` — les GIF bouclent en boucle infinie et sont ceux que vous voyez intégrés ci-dessus.
 
 ---
 
@@ -239,6 +241,8 @@ Trois graphiques sont ensuite enregistrés dans `assets/` : `functions.png`, `co
 
 - [x] **Blinder `TD2.py`** — validation du changement de signe, garde $f'(x)=0$, détection de stagnation, arrêt sur tolérance.
 - [x] **Ajouter une 4ᵉ méthode** (`regula_falsi`) et un **moteur de benchmark** qui prouve quelle méthode est la plus rapide.
+- [x] **Tableau de bord interactif** — `python TD2.py` ouvre les 4 diagrammes dans une fenêtre Tkinter 2×2 (écran divisé en quatre).
+- [x] **Graphiques animés dans le README** — versions GIF de chaque graphe (courbes tracées progressivement, barres qui poussent).
 - [ ] **Hygiène des figures dans `TP1.py`** — séparer marche libre et marche bornée sur deux figures, et appeler `plt.show()`.
 - [ ] **Paramétrage** — exposer nombres de pas, barrières et intervalles en constantes ou arguments CLI.
 - [ ] **`requirements.txt`** pour une installation en une ligne.
